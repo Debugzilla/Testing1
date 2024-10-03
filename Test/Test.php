@@ -1,34 +1,56 @@
-<?php 
-
-declare(strict_types=1);
-
+<?php
+//Ex5 de PHP Basics i pensa tests qe podries fer per provar el seu correcte funcionament
+//Programals i despres ves realitzant el programa a testejar pas a pas segons valides els test previament.
 use PHPUnit\Framework\TestCase;
-include "numberChecker.php";
-class numbersTest extends TestCase{
-
-    private $op;
+include "notas.php";
 
 
-    public function setUp(): void{
+class avaluarTest extends TestCase {
 
-        $this->op = new NumberChecker(8);
-    }
+   /** @test */
+   public function testEsde1aDivision() {
+    $nota = new nota(60);
+    
 
+    $resultado = $nota->es1aDivision();
+    
+  
+    $this->assertTrue($resultado);
+}
 
-
-    public function test_is_Even(){
-        $this->assertTrue($this->op->isEven());
-    }
-
-    public function test_is_Positive(){
-        $this->assertTrue($this->op->isPositive());
-    }
-
+public function testEsde2aDivision() {
+    $nota = new nota(45);
+    
    
+    $resultado = $nota->es2aDivision();
+    
+    
+    $this->assertTrue($resultado);
 }
 
 
+public function testEsde3aDivision() {
+    $nota = new nota(40);
+    
+
+    $resultado = $nota->es3aDivision();
+    
+
+    $this->assertTrue($resultado);
+}
 
 
+public function testSuspendido() {
+    $nota = new nota(10);
+    
+
+    $resultado = $nota->Suspendido();
+    
+   
+    $this->assertTrue($resultado);
+}
+
+
+}
 
 ?>
